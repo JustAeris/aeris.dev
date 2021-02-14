@@ -19,25 +19,8 @@
     <body>
         <div class="left">
             <div class="container">
-
-                <!-- Might want to replace this button with something prettier... -->
-                <!-- Just don't remove the .overlay-close element or things will break -->
-                <button class="overlay-close" id="overlay-close">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="35px" height="35px" viewBox="0 0 26 26" style="enable-background:new 0 0 26 26;" xml:space="preserve">
-                        <g>
-                            <path style="fill:#cecece;" d="M21.125,0H4.875C2.182,0,0,2.182,0,4.875v16.25C0,23.818,2.182,26,4.875,26h16.25
-                                C23.818,26,26,23.818,26,21.125V4.875C26,2.182,23.818,0,21.125,0z M18.78,17.394l-1.388,1.387c-0.254,0.255-0.67,0.255-0.924,0
-                                L13,15.313L9.533,18.78c-0.255,0.255-0.67,0.255-0.925-0.002L7.22,17.394c-0.253-0.256-0.253-0.669,0-0.926l3.468-3.467
-                                L7.221,9.534c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468
-                                c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467
-                                C19.033,16.725,19.033,17.138,18.78,17.394z"/>
-                        </g>
-                    </svg>
-                </button>
-
                 <h1>Hello, world!</h1>
-
+                <p>This is where your content goes.</p>
             </div>
         </div>
         <div class="right">
@@ -45,8 +28,8 @@
                 <div class="wallnut"></div>
             </div>
             <!-- Probably want to change the text here, it's just a placeholder -->
-            <button class="overlay-open" id="overlay-open">
-                Open overlay
+            <button class="overlay-button" id="overlay-toggle">
+                View more
             </button>
         </div>
 
@@ -54,14 +37,22 @@
         <script>
             
             $(document).ready(function () {
-                $('#overlay-close').click(function () {
-                    $('.left').animate({ width: 0, left: '-6em' });
-                    $('.right').animate({ width: '100%' });
-                });
+                window.overlay = false;
 
-                $('#overlay-open').click(function () {
-                    $('.left').animate({ width: '50%', left: 0 });
-                    $('.right').animate({ width: '50%' });
+                $('#overlay-toggle').click(function () {
+                    if (window.overlay !== true) {
+                        $('.left').animate({ width: '50%', left: 0 });
+                        $('.right').animate({ width: '50%' });
+
+                        $(this).text('View less');                        
+                    } else {
+                        $('.left').animate({ width: 0, left: '-4em' });
+                        $('.right').animate({ width: '100%' });
+
+                        $(this).text('View more');
+                    }
+
+                    window.overlay = !window.overlay;
                 });
             });
 
