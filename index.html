@@ -22,7 +22,7 @@
 
                 <!-- Might want to replace this button with something prettier... -->
                 <!-- Just don't remove the .overlay-close element or things will break -->
-                <div class="overlay-close">
+                <button class="overlay-close" id="overlay-close">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         width="35px" height="35px" viewBox="0 0 26 26" style="enable-background:new 0 0 26 26;" xml:space="preserve">
                         <g>
@@ -34,7 +34,7 @@
                                 C19.033,16.725,19.033,17.138,18.78,17.394z"/>
                         </g>
                     </svg>
-                </div>
+                </button>
 
                 <h1>Hello, world!</h1>
 
@@ -44,6 +44,27 @@
             <div class="grid">
                 <div class="wallnut"></div>
             </div>
+            <!-- Probably want to change the text here, it's just a placeholder -->
+            <button class="overlay-open" id="overlay-open">
+                Open overlay
+            </button>
         </div>
+
+        <script src="js/jquery-3.5.1.js"></script>
+        <script>
+            
+            $(document).ready(function () {
+                $('#overlay-close').click(function () {
+                    $('.left').animate({ width: 0, left: '-6em' });
+                    $('.right').animate({ width: '100%' });
+                });
+
+                $('#overlay-open').click(function () {
+                    $('.left').animate({ width: '50%', left: 0 });
+                    $('.right').animate({ width: '50%' });
+                });
+            });
+
+        </script>
     </body>
 </html>
