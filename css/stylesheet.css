@@ -77,3 +77,11 @@ html, body {
 .overlay-button:hover {
 	background-color: #ebebeb;
 }
+
+.bottom-text {
+	display: block;
+	position: absolute;
+	bottom: 2.5em;
+	right: calc(5px + 4em);
+	color: white;
+}
