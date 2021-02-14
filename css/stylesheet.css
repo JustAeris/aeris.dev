@@ -23,7 +23,7 @@ html, body {
 .wallnut {
 	background-image: url(../assets/nut.gif);
 	background-position: center;
-	background-repeat: no-repeaet;
+	background-repeat: no-repeat;
 	width: 200px;
 	height: 200px;
 	position: absolute;
@@ -86,8 +86,8 @@ html, body {
 .bottom-text {
 	display: block;
 	position: absolute;
-	bottom: 2.5em;
-	right: calc(5px + 4em);
+	bottom: 1em;
+	right: 1em;
 	color: white;
 	font-family: 'JetBrains Mono', monospace;
 }
