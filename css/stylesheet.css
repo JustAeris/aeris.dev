@@ -19,14 +19,11 @@ html, body {
 	background-image: url(../assets/nut.gif);
 	background-position: center;
 	background-repeat: no-repeaet;
-
 	width: 200px;
 	height: 200px;
-
 	position: absolute;
 	top: 50%;
 	left: 50%;
-
 	transform: translate(-50%, -50%);
 }
 
@@ -54,13 +51,12 @@ html, body {
 
 .left .container {
 	width: 80%;
-	margin: 0 auto;
+	margin: 3rem auto;
 }
 
 .right {
 	width: 100%;
 	height: 100%;
-
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -68,6 +64,16 @@ html, body {
 
 .overlay-button {
 	position: absolute;
-	top: 3em;
-	left: calc(10px + 4em);
+	top: 2.5em;
+	left: calc(5px + 4em);
+	background-color: white;
+	border: 1px solid #cecece;
+	border-radius: 8px;
+	font-size: 1.1rem;
+	padding: 0.5rem 1.5rem;
+	cursor: pointer;
+}
+
+.overlay-button:hover {
+	background-color: #ebebeb;
 }
