@@ -17,20 +17,45 @@
         <meta name="og:description" content="My very cool home page!">
     </head>
     <body>
-        <div class="grid">
-            <div class="wallnut">
-                <div class="container">
-                    <div class="center">
-                      <button class="btn">
-                        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-                          <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                          <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                        </svg>
-                        <span>Visit my GitHub</span>
-                      </button>
-                    </div>
-                  </div>
+        <div class="left">
+            <div class="container">
+                <h1>Hello, world!</h1>
+                <p>This is where your content goes.</p>
             </div>
         </div>
+        <div class="right">
+            <div class="grid">
+                <div class="wallnut"></div>
+            </div>
+            <!-- Probably want to change the text here, it's just a placeholder -->
+            <button class="overlay-button" id="overlay-toggle">
+                View more
+            </button>
+        </div>
+
+        <script src="js/jquery-3.5.1.js"></script>
+        <script>
+            
+            $(document).ready(function () {
+                window.overlay = false;
+
+                $('#overlay-toggle').click(function () {
+                    if (window.overlay !== true) {
+                        $('.left').animate({ width: '50%', left: 0 });
+                        $('.right').animate({ width: '50%' });
+
+                        $(this).text('View less');                        
+                    } else {
+                        $('.left').animate({ width: 0, left: '-4em' });
+                        $('.right').animate({ width: '100%' });
+
+                        $(this).text('View more');
+                    }
+
+                    window.overlay = !window.overlay;
+                });
+            });
+
+        </script>
     </body>
 </html>
