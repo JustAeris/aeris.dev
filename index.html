@@ -1,64 +1,75 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2021 Aeris & DelightedCat
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  -->
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Aeris</title>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Aeris</title>
 
-        <link href="css/stylesheet.css" rel="stylesheet">
-        <link href="css/component.css" rel="stylesheet">
-        <link href="css/default.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
 
-        <link rel="icon" href="assets/favicon.png">
-    
-        <meta name="og:title" content="Aeris">
-        <meta name="og:type" content="website">
-        <meta name="og:image" content="https://aeris.dev/assets/aeris.png">
-        <meta name="og:url" content="https://aeris.dev/">
-        <meta name="og:description" content="My very cool home page!">
-    </head>
-    <body>
-        <div class="left">
-            <div class="container">
-                <h1>Hello, world!</h1>
-                <p>This is where your content goes.</p>
-            </div>
-        </div>
-        <div class="right">
-            <div class="grid">
-                <div class="wallnut"></div>
-            </div>
-            <button class="overlay-button" id="overlay-toggle">
-                View more
-            </button>
-            <span class="bottom-text">
+    <link rel="icon" href="assets/favicon.png">
+
+    <meta name="og:title" content="Aeris">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="https://aeris.dev/assets/aeris.png">
+    <meta name="og:url" content="https://aeris.dev/">
+    <meta name="og:description" content="My very cool home page!">
+</head>
+<body>
+<div class="left">
+    <div class="container">
+        <h1>Hello, world!</h1>
+        <p>This is where your content goes.</p>
+    </div>
+</div>
+<div class="right">
+    <div class="grid">
+        <div class="wallnut"></div>
+    </div>
+    <button class="overlay-button" id="overlay-toggle">
+        View more
+    </button>
+    <span class="bottom-text">
                 Thanks to <a href="https://github.com/DelightedCat" target="_blank">DelightedCat</a>
                 for making me this website!
             </span>
-        </div>
+</div>
 
-        <script src="js/jquery-3.5.1.js"></script>
-        <script>
-            
-            $(document).ready(function () {
-                window.overlay = false;
+<script src="js/jquery-3.5.1.js"></script>
+<script>
 
-                $('#overlay-toggle').click(function () {
-                    if (window.overlay !== true) {
-                        $('.left').animate({ width: '50%', left: 0 });
-                        $('.right').animate({ width: '50%' });
+    $(document).ready(function () {
+        window.overlay = false;
 
-                        $(this).text('View less');                        
-                    } else {
-                        $('.left').animate({ width: 0, left: '-4em' });
-                        $('.right').animate({ width: '100%' });
+        $('#overlay-toggle').click(function () {
+            if (window.overlay !== true) {
+                $('.left').animate({ width: '50%', left: 0 });
+                $('.right').animate({ width: '50%' });
 
-                        $(this).text('View more');
-                    }
+                $(this).text('View less');
+            } else {
+                $('.left').animate({ width: 0, left: '-4em' });
+                $('.right').animate({ width: '100%' });
 
-                    window.overlay = !window.overlay;
-                });
-            });
+                $(this).text('View more');
+            }
 
-        </script>
-    </body>
+            window.overlay = !window.overlay;
+        });
+    });
+
+</script>
+</body>
 </html>
