@@ -12,7 +12,9 @@
   -->
 
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Aeris</title>
@@ -27,43 +29,77 @@
     <meta name="og:url" content="https://aeris.dev/">
     <meta name="og:description" content="My very cool home page!">
 </head>
+
 <body>
+
 <div class="left">
     <div class="container">
         <h1>Hello, world!</h1>
         <p>This is where your content goes.</p>
     </div>
 </div>
+
 <div class="right">
     <div class="grid">
         <div class="wallnut"></div>
     </div>
-    <button class="overlay-button" id="overlay-toggle">
-        View more
-    </button>
+    <a class="overlay-button btn btn-white btn-animate " href="#" id="overlay-toggle">
+            <span class="vertical-center">
+                <label class="vertical-center" id="view-text">VIEW MORE</label>
+            </span>
+        <svg class="icon icon-tabler icon-tabler-arrow-up-circle rotating" fill="none"
+             height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+             transform="rotate(90)"
+             viewBox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="12" x2="8" y1="8" y2="12"/>
+            <line x1="12" x2="12" y1="8" y2="16"/>
+            <line x1="16" x2="12" y1="12" y2="8"/>
+        </svg>
+    </a>
+
     <span class="bottom-text">
                 Thanks to <a href="https://github.com/DelightedCat" target="_blank">DelightedCat</a>
                 for making me this website!
-            </span>
+    </span>
 </div>
 
 <script src="js/jquery-3.5.1.js"></script>
 <script>
+
+    $.fn.animateRotate = function (angle, duration, easing, complete) {
+        var args = $.speed(duration, easing, complete);
+        var step = args.step;
+        return this.each(function (i, e) {
+            args.complete = $.proxy(args.complete, e);
+            args.step = function (now) {
+                $.style(e, 'transform', 'rotate(' + now + 'deg)');
+                if (step) return step.apply(e, arguments);
+            };
+
+            $({deg: 0}).animate({deg: angle}, args);
+        });
+    };
 
     $(document).ready(function () {
         window.overlay = false;
 
         $('#overlay-toggle').click(function () {
             if (window.overlay !== true) {
-                $('.left').animate({ width: '50%', left: 0 });
-                $('.right').animate({ width: '50%' });
+                $('.left').animate({width: '50%', left: 0});
+                $('.right').animate({width: '50%'});
 
-                $(this).text('View less');
+                $('.rotating').animateRotate(270);
+
+                $('#view-text').text('VIEW LESS');
             } else {
-                $('.left').animate({ width: 0, left: '-4em' });
-                $('.right').animate({ width: '100%' });
+                $('.left').animate({width: 0, left: '-4em'});
+                $('.right').animate({width: '100%'});
 
-                $(this).text('View more');
+                $('.rotating').animateRotate(90);
+
+                $('#view-text').text('VIEW MORE');
             }
 
             window.overlay = !window.overlay;
@@ -71,5 +107,7 @@
     });
 
 </script>
+
 </body>
+
 </html>
